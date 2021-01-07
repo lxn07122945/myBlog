@@ -1,0 +1,39 @@
+### react 是MVC框架
+
+### react脚手架：create-react-app（官方脚手架）
+全局环境安装： npm install create-react-app
+创建项目： create-react-app xxx
+
+---
+不想安装在全局可以基于npx一步到位
+$ npx create-react-app xxx
+
+#### 脚手架项目目录
+|- node_modules 所有安装的模块
+|- public
+    |- index.html spa单页面应用中各组件最后合并渲染完成的结果都会放入页面的root盒子中
+    |- xxx.html 这里存放的是最后编译页面的模板
+    |- 我们会放一些公共的资源，把这些资源直接居于src的方式引入到页面当中去，而不是基于webpack最后合并在一起
+|- src 整个目录的大部分源码都放在这个目录下
+    |- index.js 项目的入口，从这个文件开始打包
+    |- api 数据处理
+    |- store redux公共项目管理模块
+    |- assets 存储工共资源（图片和央视）
+    |- routes 路由管理的
+    |- utils 公共的js模块
+    |- components 公共的组件
+    |- 。。。
+|- dist 产出目录文件
+|- package.json 项目的依赖清单
+
+
+#### 默认配置清单
+- 生产依赖项
+    + react框架核心
+    + react-dom 把jsx语法渲染成为真正的dom最后在浏览器中显示
+    + react-scripts 官方脚手架配置的东西 需要弹射出去后自己进行单独的配置 
+        把所有的webpack的配置项和依赖项都隐藏到node_modules中
+- scripts 当前项目的可执行脚本
+    + eject 把所有隐藏在node_modules中的所有配置都暴露出来方便根据自己的需要进行二次配置
+    + start命令 启动项目
+
