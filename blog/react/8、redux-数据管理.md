@@ -82,7 +82,9 @@ action的dispatch结果要通过中间件判断执行结果，根据执行结果
 [redux-undo](https://github.com/omnidan/redux-undo)
 ### react-redux
     Provider
-    connect()
+    connect(mapStateToProps, mapDispatchToProps, mergeProps) (component);
+    mapStateToProps:
+    mergeProps:
 
 ### 其他状态管理的库
     mobx
