@@ -38,4 +38,6 @@
         卸载组件
 
     
-    
+### JSX to  createElement
+babel-loader
+

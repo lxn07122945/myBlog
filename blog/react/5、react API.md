@@ -1,6 +1,13 @@
 ### React DOM
     Render: ReactDOM.render();
 
+### createElement
+    createElement(type, config, children)
+    
+### Component
+
+### render 
+
 ### Context 
     解决问题：父子组件之间的通讯
     使用场景：
@@ -18,3 +25,10 @@
 ### Hoocks
 useCallback
 useMemory
+
+### 什么是虚拟DOM
+虚拟DOM是一种编程概念，期望UI以一种理想的状态存储在内存中
+
+
+
+
