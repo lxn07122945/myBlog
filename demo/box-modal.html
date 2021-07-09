@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *, html, body {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 2000px;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            padding: 10px;
+            background-color: aquamarine;
+            border: 2px solid #ff5151;
+        }
+        .special {
+            box-sizing: border-box;
+        }
+
+        #text-over {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100px;
+            white-space: nowrap;
+        }
+        .position-attr {
+            width: 100px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">标准盒模型</div>
+    <div id="box" class="special">怪异盒模型</div>
+    <div id="text-over">省略号：理解useMemo与useCallback的使用场景_ass_ace-CSDN博客</div>
+
+    <div class="position-attr">position
+        属性
+    </div>
+</body>
+</html>

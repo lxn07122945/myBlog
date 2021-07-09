@@ -10,3 +10,20 @@ var Person = function (name, age) {
 };
 
 var b = new Person('hanmeimei', 25);
+
+// 原型继承
+
+// 构造函数继承
+
+// 组合继承
+
+// 原型式继承
+
+// 寄生式继承
+
+// 寄生组合式继承
+
+// 混入方式继承
+
+// es6 class extends继承
+

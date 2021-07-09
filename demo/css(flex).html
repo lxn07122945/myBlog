@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex布局</title>
+    <style>
+        .main1, .main2, .main3, .main4, .main5, .main6, .main7, .main8, .main9 {
+            display: flex;
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ff5151;
+        }
+        .main1 {
+            /** 确定主轴方向**/
+            flex-direction: row;
+            /* flex-wrap: wrap-reverse; // wrap， no-wrap */
+            justify-content: space-around; 
+            /** 可选值： space-between、 center、flex-start、flex-end**/
+            align-items: center;
+            /** 可选值： flex-start、flex-end、center、stretch、baseline**/
+
+        }
+        .main-child {
+            width: 100px;
+            /* height: 100px; */
+        }
+        .main-child1 {
+            background-color: #d2eed9;
+            height: 50px;
+
+        }
+        .main-child2 {
+            background-color: #ff5722;
+            height: 100px;
+
+        }
+        .main-child3 {
+            background-color: #7af508;
+            height: 150px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="main1">
+        <div class="main-child main-child1">1</div>
+        <div class="main-child main-child2">2</div>
+        <div class="main-child main-child3">3</div>
+    </div>
+    <div class="main2"></div>
+    <div class="main3"></div>
+    <div class="main4"></div>
+    <div class="main5"></div>
+    <div class="main6"></div>
+    <div class="main7"></div>
+    <div class="main9"></div>
+    <div class="main8"></div>
+
+</body>
+<script>
+    //sum(6,8)(3,6,9)(6)(); // 计算出6+8+3+6+9+6的结果
+    function add(){
+        console.log(add.args);
+
+        if(arguments.length === 0){
+            let num = 0;
+            add.args.forEach(v=>{
+                num += v;
+            });
+            add.args = null;
+            return num;
+        } else {
+            add.args = add.args ? add.args : [];
+            add.args = add.args.concat([...arguments]);
+            return add;
+        }
+    }
+    console.log(add(6,8)(3,6,9)(6)());
+</script>
+</html>
