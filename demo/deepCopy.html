@@ -9,4 +9,31 @@
 <body>
     
 </body>
+<script>
+    function deepCopy (target){
+        if (typeof target === 'object') {
+            var cloneTarget = {};
+            for (var key in target) {
+                cloneTarget[key] = deepCopy(target[key])
+            }
+            return cloneTarget;
+        }
+        else {
+            return target
+        }
+    }
+    // 防抖
+    function debounce (fn, wait) {
+        var timer = null;
+
+        return function (...args) {
+            if (timer) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(function () {
+                fn.apply(this, args);
+            }, wait);
+        }
+    }
+</script>
 </html>
