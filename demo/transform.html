@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0" user-scale= "false">    
     <title>transform</title>
     <style>
         #container {
@@ -41,6 +41,16 @@
             50% { background: orange; }
             100% { background: yellowgreen; }
         }
+        .angle {
+            width: 0;
+            height: 0;
+            border: 100px solid red;
+            border-radius: 100px;
+            border-top: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            transform:  rotate(90deg);
+        }
     </style>
 </head>
 <body>
@@ -50,5 +60,19 @@
     <div id="circle"></div>
     <strong>向南测试的strong</strong>
     <b>向南的测试b</b>
+
+    <div class="angle"></div>
 </body>
+<script>
+    async function fn () {
+        return Promise.resolve("hello async");
+
+    }
+    async function test() {
+        const v2 = await fn();
+        console.log(v2);
+    }
+
+    test();
+</script>
 </html>
