@@ -183,5 +183,149 @@ function formateN  (n) {
         }
     }
 }
+console.log('*************add **************');
+/**
+ * 实现add(3)(4,5)(6)()
+ * 思路：借助闭包的方法
+ */
+function add () {
+    if (arguments.length === 0) {
+        let num = 0;
+        add.args.forEach(item => {
+            num += item;
+        })
+        add.args = null;
+        return num
+    }
+    else {
+        // 重复赋值一下，以防首次进入没有args属性
+        add.args =  add.args  ? add.args : [];
+        add.args = add.args.concat([...arguments])
+        console.log( add.args );
 
-console.log(formateN(1231352.123))
+        return add;
+    }
+}
+console.log(add(6,8)(3,6,9)(6)());
+
+/**
+ * 打印红黄绿
+ * 红灯3s打印一次
+ * 黄灯2s打印一次
+ * 绿灯1s打印一次
+ */
+function red () {
+    console.log('红灯');
+}
+function yellow () {
+    console.log('黄灯');
+}
+function green () {
+    console.log('绿灯');
+}
+function task (color, wait, callback) {
+    setTimeout(function () {
+        if (color === 'red') {
+            red()
+        }
+        else if (color === 'green') {
+            green()
+        }
+        else if (color === 'yellow') {
+            yellow()
+        }
+        callback();
+    }, wait)
+}
+function step () {
+    task ('red', 3000, () => {
+        task('yellow', 2000, () => {
+            task('green', 1000, step)
+        })
+    });
+}
+step();
+
+/**
+ *
+ * // 转换前：
+source = [{
+            id: 1,
+            pid: 0,
+            name: 'body'
+          }, {
+            id: 2,
+            pid: 1,
+            name: 'title'
+          }, {
+            id: 3,
+            pid: 2,
+            name: 'div'
+          }]
+// 转换为: 
+tree = [{
+          id: 1,
+          pid: 0,
+          name: 'body',
+          children: [{
+            id: 2,
+            pid: 1,
+            name: 'title',
+            children: [{
+              id: 3,
+              pid: 1,
+              name: 'div'
+            }]
+          }
+        }]
+ */
+
+const source = [{
+    id: 1,
+    pid: 0,
+    name: 'body'
+  }, {
+    id: 2,
+    pid: 1,
+    name: 'title'
+  }, {
+    id: 3,
+    pid: 2,
+    name: 'div'
+}];
+// 借助的是引用对象类型修改内容会引起所有相关变量的修改
+
+function jsonToTree (json) {
+    let result = [];
+    if (!Array.isArray(json)) {
+        return result;
+    }
+    let map = {};
+    json.forEach(item => {
+        map[item.id] = item;
+    });
+    json.forEach(item=>{
+        let parent = map[item.pid];
+        if (parent) {
+            (parent.child || (parent.child = [])).push(item);
+        }
+        else {
+            result.push(item)
+        }
+    });
+    return result;
+}
+console.log(jsonToTree(source));
+
+
+// 打印1、2、3、4
+
+for (var i = 0; i < 5; i++) {
+    (function (i) {
+        setTimeout(function () {console.log(i);}, 0)
+    })(i)
+}
+
+for (let i = 0; i < 5; i++) {
+    setTimeout(()=>{console.log(i);}, 0)
+}
