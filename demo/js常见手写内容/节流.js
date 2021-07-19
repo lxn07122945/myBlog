@@ -8,3 +8,4 @@ const throttle = (fns, wait = 50) {
     }
   }
 }  
+
