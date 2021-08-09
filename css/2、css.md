@@ -43,7 +43,7 @@ id选择器：#box
     css盒模型本质上是一个盒子，封装html元素 ；
     分为标准盒模型盒怪异盒模型；
     一般浏览器默认是标准盒模型；
-    可以通过设置box-sizing：border-box开启怪异盒模型、content-box，标准盒模型；
+    可以通过设置box-sizing：border-box开启怪异盒模型、content-box开启标准盒模型；
 
     标准盒模型的宽高= 内容区域 + padding + border； 
     所以下列的box在标准盒模型中的宽：124px 
@@ -60,6 +60,7 @@ id选择器：#box
     }
 
 ### 什么是BFC、如何触发BFC、BFC的作用
+
     BFC叫做块级格式上下文，是一个独立的布局区域；并且该区域的布局不会影响外部布局
 
     如何触发：
@@ -72,10 +73,18 @@ id选择器：#box
     解决什么问题：
     1）垂直方向两个元素的margin重叠
     2）使浮动元素自动撑起容器的高度
-    3）组织元素被浮动元素遮盖
+    3）阻止元素被浮动元素遮盖
 
 ### inline、inline-block、block的区别
 
     inline：行内元素、设置宽高无效、垂直方向的margin无效、水平方向的margin有效；水平和垂直方向的padding都有效；不会换行
     inline-block：可以设置宽高、水平和垂直方向的margin、padding都有效；前后无换行
-    block：前后有换行、可以设置宽高；水平方向和垂直方向的margin与padding都有效
+    block：前后有换行、可以设置宽高；水平方向和垂直方向的margin与padding都有效;
+
+### position 可选值
+
+    1、static ： 默认值；设置为static之后top、left、bottom、right、z-index是不生效的；
+    2、relative： 先放置元素在默认位置；设置top、left等属性之后相对于默认位置进行偏移；偏移位置是空白的；不改变页面布局,预留空间，
+    3、absolute：移出文档流（改变布局），不预留空间；相对于最近的非static定位的祖先元素进行偏移确定位置
+    4、fixed： 相对于屏幕视口进行定位，屏幕滚动时，不会改变位置；当元素祖先的transform、perspective、filter属性不为none时，容器由视口改为该元素；
+    5、sticky：根据正常文档流进行定位，基于想对他最近的滚动祖先进行定位。
