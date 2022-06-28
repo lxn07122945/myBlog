@@ -32,7 +32,7 @@ const EARTH_CIRCUMFERENCE = 40.03e6;
 //   return [x, y];
 // }
 
-function sign (x: number) {
+export function sign (x: number) {
   return x < 0 ? -1 : x > 0 ? 1 : 0;
 }
 /**
@@ -40,7 +40,7 @@ function sign (x: number) {
  * @param lngLat 
  * @returns 
  */
-function convertToMercator(lngLat: number[]) {
+export function convertToMercator(lngLat: number[]) {
  const MAXEXTENT = 20037508.342789244;
   var adjusted = Math.abs(lngLat[0]) <= 180 ? lngLat[0] : lngLat[0] - sign(lngLat[0]) * 360;
   var xy = [
@@ -60,14 +60,14 @@ function convertToMercator(lngLat: number[]) {
   return xy;
 }
 
-function convertToWgs84(xy: number[]) {
+export function convertToWgs84(xy: number[]) {
   return [
       (xy[0] * RADIANS_TO_DEGREES) / earthRadius,
       (Math.PI * 0.5 - 2.0 * Math.atan(Math.exp(-xy[1] / earthRadius))) * RADIANS_TO_DEGREES,
   ];
 }
 
-function pointToTile(lngLat: number[], z: number) {
+export function pointToTile(lngLat: number[], z: number) {
   const [lng, lat] = lngLat;
   var tile = pointToTileFraction(lng, lat, z);
   tile[0] = Math.floor(tile[0]);
@@ -75,7 +75,7 @@ function pointToTile(lngLat: number[], z: number) {
   return tile;
 }
 
-function pointToTileFraction(lng: number, lat: number, z: number) {
+export function pointToTileFraction(lng: number, lat: number, z: number) {
   const sin = Math.sin(lat * DEGREES_TO_RADIANS);
   const z2 = Math.pow(2, z);
   let x = z2 * (lng / 360 + 0.5);
@@ -98,11 +98,11 @@ function pointToTileFraction(lng: number, lat: number, z: number) {
 //   return [x, y, z];
 // }
 
-function tile2lon(x: number, z: number) {
+export function tile2lon(x: number, z: number) {
   return x / Math.pow(2, z) * 360 - 180;
 }
 
-function tile2lat(y: number, z: number) {
+export function tile2lat(y: number, z: number) {
   var n = Math.PI - 2 * Math.PI * y / Math.pow(2, z);
   return RADIANS_TO_DEGREES * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
 }

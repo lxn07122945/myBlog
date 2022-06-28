@@ -1,0 +1,8 @@
+#grab-map-img {
+  box-sizing: border-box;
+  font-size: xx-large;
+  color: red;
+  position: absolute;
+  border: 1px solid red;
+  text-align: center;
+}
