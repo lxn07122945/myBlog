@@ -53,6 +53,7 @@ function randomColor () {
   ]
 }
 
+
 function resizeCanvasToDisplaySize(canvas) {
   // 获取浏览器显示的画布的CSS像素值
   const displayWidth = canvas.clientWidth
@@ -108,8 +109,7 @@ function main () {
   gl.useProgram(program);
 
   gl.uniform2f(a_Screen_Size, gl.canvas.width, gl.canvas.height);
-  console.log(gl.canvas.width, gl.canvas.height)
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([250, 250]), gl.STATIC_DRAW);
+  // gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([250, 250]), gl.STATIC_DRAW);
 
   gl.uniform4fv(u_Color, [255, 0 ,0 ,1]);
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
@@ -122,8 +122,6 @@ function main () {
   canvas.addEventListener('click', (evt) => {
     var x = evt.pageX;
     var y = evt.pageY;
-    console.log(x/canvas.width * 2 - 1)
-    console.log(-(y/canvas.height * 2 - 1))
     var color = randomColor();
     points.push({
       x,
@@ -135,7 +133,6 @@ function main () {
 
     for (let i = 0; i < points.length; i++) {
       const {color, x , y} = points[i];
-      console.log(x, y)
       gl.uniform4fv(u_Color, color);
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([x, y]), gl.STATIC_DRAW);
       gl.drawArrays(gl.POINTS, 0 ,1)

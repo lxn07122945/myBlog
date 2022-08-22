@@ -1,6 +1,5 @@
 var VectorTile = require('@mapbox/vector-tile').VectorTile;
 var Protobuf = require('pbf');
-
 "use strict";
 
 var vertexShaderSource = `#version 300 es
@@ -96,7 +95,6 @@ function main() {
   if (!gl) {
     return;
   }
-
   // create GLSL shaders, upload the GLSL source, compile the shaders
   var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
   var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
@@ -112,7 +110,7 @@ function main() {
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
 
   var color = [Math.random(), Math.random(), Math.random(), 1];
-  var scale = [3.0, 3.0];
+  var scale = [1.0, 1.0];
 
   var vao = gl.createVertexArray();
   gl.bindVertexArray(vao)
