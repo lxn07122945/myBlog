@@ -12,6 +12,7 @@
     @import url("https://webgl2fundamentals.org/webgl/resources/webgl-tutorials.css");
     body {
       margin: 0;
+      padding: 0;
     }
     #streetView {
       width: 100vw;
@@ -20,21 +21,13 @@
     }
     #c {
       width: 100vw;
-      height: 100vh
+      height: 100vh;
+      display: block;
     }
   </style>
 </head>
 <body>
   <canvas id="c"></canvas>
-  <div id="uiContainer">
-    <div id="ui">
-      <div id="x"></div>
-      <div id="y"></div>
-      <div id="angle"></div>
-      <div id="scaleX"></div>
-      <div id="scaleY"></div>
-
-    </div>
-  </div>
 </body>
+<script src="./js/point.js"></script>
 </html>
